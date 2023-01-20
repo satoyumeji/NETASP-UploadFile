@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+
+    @{
+        if (ViewData["up_file_name"] != null)
+        {
+            string path ="/image/product/" + ViewData["up_file_name"];
+            <p>アップロードした画像の表示（テスト）</p>
+            <img src="@path">
+        }
+    }
+
+
+    <form enctype="multipart/form-data" method="post" asp-controller="Home" asp-action="Upload">
+        アップロードファイル：<input type="file" name="uploadFile" />
+        <button class="btn btn-primary" type="submit">アップロード</button>
+    </form>
+
+</div>
